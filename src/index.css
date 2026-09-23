@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-display antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-medium tracking-tightish text-ink;
+  }
+
+  a {
+    @apply text-inherit;
+  }
+
+  ::selection {
+    @apply bg-signal text-paper;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2B4EFF;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1480px] px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-pad {
+    @apply py-24 sm:py-32;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink px-7 py-3.5 text-[0.8rem] uppercase tracking-wideish text-paper
+           transition-colors duration-300 ease-studio hover:bg-signal
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-ink px-7 py-3.5 text-[0.8rem] uppercase tracking-wideish text-ink
+           transition-colors duration-300 ease-studio hover:border-signal hover:text-signal
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 border border-paper/50 px-7 py-3.5 text-[0.8rem] uppercase tracking-wideish text-paper
+           transition-colors duration-300 ease-studio hover:border-signal hover:text-signal;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-[0.8rem] uppercase tracking-wideish text-ink;
+  }
+
+  .link-arrow .arrow {
+    @apply transition-transform duration-300 ease-studio;
+  }
+
+  .link-arrow:hover .arrow {
+    @apply translate-x-1;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.7rem] uppercase tracking-wider2 text-gray;
+  }
+
+  .meta {
+    @apply font-mono text-[0.72rem] uppercase tracking-wideish text-gray;
+  }
+
+  .field-input {
+    @apply w-full border-b border-gray-line bg-transparent px-0 py-3 text-[0.95rem] text-ink outline-none transition-colors
+           placeholder:text-gray focus:border-ink;
+  }
+
+  .field-label {
+    @apply font-mono text-[0.7rem] uppercase tracking-wideish text-gray;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
